@@ -1,0 +1,21 @@
+customer_id,name,email,city
+C001,Kasun Perera,kasun.p@email.com,Kandy
+C002,Nimal Silva,nimal.silva@email.com,Colombo
+C003,Sunil Fernando,sunil.f@email.com,Galle
+C004,Amara Dias,amara.d@email.com,Matara
+C005,Chathuri De Silva,chathuri.ds@email.com,Negombo
+C006,Dinesh Bandara,dinesh.b@email.com,Kurunegala
+C007,Praveen Weerasinghe,praveen.w@email.com,Jaffna
+C008,Sanduni Jayawardena,sanduni.j@email.com,Kandy
+C009,Ruwan Wickramasinghe,ruwan.w@email.com,Anuradhapura
+C010,Thilini Senanayake,thilini.s@email.com,Ratnapura
+C011,Mahesh Karunaratne,mahesh.k@email.com,Badulla
+C012,Anushka Ranasinghe,anushka.r@email.com,Gampaha
+C013,Kavinda Gunasekara,kavinda.g@email.com,Kalutara
+C014,Dilshan Abeysekara,dilshan.a@email.com,Matale
+C015,Oshadi Liyanage,oshadi.l@email.com,Nuwara Eliya
+C016,Buddhika Samarasinghe,buddhika.s@email.com,Kegalle
+C017,Ishara Madushanka,ishara.m@email.com,Trincomalee
+C018,Sachini Mendis,sachini.m@email.com,Hambantota
+C019,Ravindu Alwis,ravindu.a@email.com,Polonnaruwa
+C020,Nadun Jayasuriya,nadun.j@email.com,Panadura
