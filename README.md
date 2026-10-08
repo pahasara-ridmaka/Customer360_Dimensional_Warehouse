@@ -5,7 +5,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
 
-An end-to-end cloud dimensional data warehouse built on **Snowflake**, implementing Kimball dimensional modeling, **SCD Type 1** (in-place overwrites) for product catalogs, and **SCD Type 2** (validity window history tracking) for customer records.
+An cloud dimensional data warehouse built on **Snowflake**, implementing Kimball dimensional modeling, **SCD Type 1** (in-place overwrites) for product catalogs, and **SCD Type 2** (validity window history tracking) for customer records.
 
 This architecture eliminates point-in-time attribution errors in analytics by preserving dimension history and joining transactions against valid surrogate key ranges.
 
@@ -149,8 +149,7 @@ INNER JOIN CUSTOMER360_DW.CORE.dim_product p
 ```text
 Customer 360 SCD Data Warehouse/
 ├── streamlit app/
-│   ├── app.py                             # Streamlit in Snowflake (SiS) dashboard
-│   └── requirements.txt                   # Dashboard dependencies
+│   └── app.py                             # Streamlit in Snowflake (SiS) dashboard
 ├── sql/
 │   ├── 01_setup_environment.sql           # Database, schemas, internal stage, formats
 │   ├── 02_staging_tables.sql              # Staging DDL (stg_customers, stg_products, stg_orders)
