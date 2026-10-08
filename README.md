@@ -26,74 +26,14 @@ In operational systems, customer attributes (e.g., residential city) change over
 
 ## 🏗️ Architecture & Data Pipeline Flow
 
-```
-[Local CSV Batches: customers_day1, customers_day2, products, orders]
-                            │
-                            │ Snowsight / SnowSQL PUT
-                            ▼
-           [@CUSTOMER360_DW.STAGING.RAW_STAGE]
-                            │
-                            │ COPY INTO
-                            ▼
-              [CUSTOMER360_DW.STAGING]
-         (stg_customers, stg_products, stg_orders)
-                            │
-       ┌────────────────────┼────────────────────┐
-       ▼                    ▼                    ▼
-[dim_product]        [dim_customer]         [fact_sales]
- (SCD Type 1)         (SCD Type 2)     (Point-in-Time Keys)
-       └────────────────────┬────────────────────┘
-                            │
-                            ▼
-               [Streamlit in Snowflake App]
-          - KPI Cards & Revenue attribution
-          - Customer audit timeline
-          - Product catalog ledger
-```
+<img width="672" height="226" alt="Untitled Diagram drawio (3)" src="https://github.com/user-attachments/assets/9e93464c-9e42-4095-9549-2d1911fc88d8" />
+
 
 ---
 
 ## 📐 Star Schema Design
 
-```
-             ┌─────────────────────────┐
-             │       dim_product       │
-             ├─────────────────────────┤
-             │ PK  product_sk          │
-             │     product_id          │
-             │     product_name        │
-             │     category            │
-             │     price               │
-             │     updated_at          │
-             └────────────┬────────────┘
-                          │ 1:N
-                          ▼
-┌──────────────────────────────────────────────┐
-│                  fact_sales                  │
-├──────────────────────────────────────────────┤
-│ PK  sales_sk                                 │
-│     order_id (Degenerate Dimension)          │
-│     order_date                               │
-│ FK  customer_sk (Point-in-Time Dimension SK) │
-│ FK  product_sk                               │
-│     quantity                                 │
-│     total_amount                             │
-└──────────────────────────────────────────────┘
-                          ▲
-                          │ 1:N
-             ┌────────────┴────────────┐
-             │       dim_customer      │
-             ├─────────────────────────┤
-             │ PK  customer_sk         │
-             │     customer_id         │
-             │     name                │
-             │     email               │
-             │     city                │
-             │     effective_start_date│
-             │     effective_end_date  │
-             │     is_current          │
-             └─────────────────────────┘
-```
+<img width="394" height="512" alt="Star Schema Diagram" src="https://github.com/user-attachments/assets/a27aad3a-63ee-465c-bdfa-754c232e86bb" />
 
 ---
 
